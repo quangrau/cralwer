@@ -7,6 +7,7 @@ import csv
 class Helper:
     fileName = None
 
+    # Get HTML content from URL
     @staticmethod
     def parseHTML(link):
         try:
@@ -16,6 +17,7 @@ class Helper:
             html = requests.get(link)
         return html.content
 
+    # Create directory and file name
     @staticmethod
     def createFileName():
         now = datetime.datetime.now()
@@ -27,6 +29,7 @@ class Helper:
         Helper.fileName = directory + '/restaurants.csv'
 
 
+    # Write data into file
     @staticmethod
     def writeInfo(data):
         if Helper.fileName is None:
