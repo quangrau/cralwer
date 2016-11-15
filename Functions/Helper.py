@@ -19,14 +19,13 @@ class Helper:
 
     # Create directory and file name
     @staticmethod
-    def createFileName():
-        now = datetime.datetime.now()
-        directory = 'data/' + now.strftime("%Y%m%d%H%M%S")
+    def createFileName(file):
+        directory = 'Data/'
 
         if not os.path.exists(directory):
             os.makedirs(directory)
 
-        Helper.fileName = directory + '/restaurants.csv'
+        Helper.fileName = directory + file[:-4] + '.csv'
 
 
     # Write data into file

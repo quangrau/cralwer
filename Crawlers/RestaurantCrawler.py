@@ -17,7 +17,6 @@ class RestaurantCrawler:
         html = Helper.parseHTML(url)
         self.restaurant = restaurant
         self.soup = BeautifulSoup(html, "lxml")
-        self.outputFile = Helper.createFileName()
 
     # Get information from metadata
     def getFromMetadata(self):
@@ -56,10 +55,13 @@ class RestaurantCrawler:
         timesOpen = self.soup.find('div', {'class': 'micro-timesopen'})
         time = timesOpen.findAll('span')
 
-        data = [
-            time[4].text, # Open Time
-            time[5].text # Close Time
-        ]
+        if len(time) > 1:
+            data = [
+                time[4].text, # Open Time
+                time[5].text # Close Time
+            ]
+        else:
+            data = ['','']
 
         return data
 
