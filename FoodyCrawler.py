@@ -4,6 +4,7 @@ import getopt
 from Crawlers import *
 from Functions import *
 
+
 def main(argv):
     file = ''
 
@@ -25,6 +26,7 @@ def main(argv):
             crawler.crawl()
 
     sys.exit()
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
